@@ -3,7 +3,7 @@ pipeline{
     stages {
       stage('One')
         steps {
-                echo 'Hello how are you'
+                Print 'Hello how are you'
                 }
                 stage('Two')
                 {
@@ -12,7 +12,16 @@ pipeline{
                     input('do you want to proceed?')
                     }
                     }
+                 stage('Three')
+                  when  {
+                    not {
+                          branch "master"
+                    }
+                    steps
+                    {
+                      echo "Hello"
                     
                   }
                 }
-                
+    }
+}
